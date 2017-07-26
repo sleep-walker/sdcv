@@ -394,7 +394,10 @@ bool Library::process_phrase(const char *loc_str, IReadLine &io, bool force)
                     io.add_to_history(res_list[choise].def.c_str());
 					print_search_result(pager.get_stream(), res_list[choise]);
 					break;
-				} else if (choise == -1){
+				} else if (choise == -1) {
+					break;
+				} else if (*(str_choise.c_str()) == '\0') {
+					printf("\n");
 					break;
 				} else
 					printf(_("Invalid choice.\nIt must be from 0 to %zu or -1.\n"),
